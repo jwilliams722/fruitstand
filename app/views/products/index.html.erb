@@ -13,13 +13,10 @@
       <tr>
         <td><%= fruit.name %></td>
         <td><%= fruit.price %></td>
-        <td><%= link_to 'Show'  %></td>
-        <td><%= link_to 'Edit'  %></td>
-        <td><%= link_to 'Destroy', method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
   <% end %>
 </table>
 
 <br />
 
-<%= link_to 'Update Cart' %>
+<%= link_to 'Create Cart', carts_path, :method => :post  %>

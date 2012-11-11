@@ -6,6 +6,16 @@ Fruitstand::Application.routes.draw do
   get "products/update"
 
   resources :products
+  resources :carts do
+    member do
+      post 'add_to_cart', :as => :add_to
+      #match 'add_to_cart', :as => :add_item_to
+      delete 'delete_from_cart', :as => :remove_from
+      #match 'delete_from_cart', :as => :remove_item_from
+
+
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -56,8 +66,8 @@ Fruitstand::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'products#index'
-
+  #root :to => 'products#index'
+  root :to => 'carts#show'
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
